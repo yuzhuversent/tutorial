@@ -24,7 +24,8 @@ const buildTodoItem = (text) => {
   deleteButton.type = "button";
   deleteButton.textContent = "Delete";
   deleteButton.addEventListener("click", () => {
-    item.remove();
+    item.classList.add("is-removing");
+    item.addEventListener("animationend", () => item.remove(), { once: true });
   });
 
   item.append(toggle, label, deleteButton);
