@@ -5,6 +5,12 @@
   color: #2f2a24;
 }
 
+:root.dark {
+  color-scheme: dark;
+  background: radial-gradient(circle at top, #1a1612, #1f1b16 50%, #252018);
+  color: #e8ddd0;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -25,10 +31,37 @@ body {
   box-shadow: 0 16px 40px rgba(47, 42, 36, 0.12);
 }
 
+.dark .app {
+  background: #2a2520;
+  border-color: #3d3530;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
 h1 {
-  margin: 0 0 18px;
+  margin: 0;
   font-size: 2rem;
   letter-spacing: 0.03em;
+}
+
+.theme-toggle {
+  background: none;
+  border: 1px solid #d6c7b5;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.dark .theme-toggle {
+  border-color: #3d3530;
 }
 
 .todo-form {
@@ -43,6 +76,12 @@ h1 {
   border-radius: 10px;
   font-size: 1rem;
   background: #fff;
+  color: inherit;
+}
+
+.dark .todo-form input {
+  background: #1e1a15;
+  border-color: #3d3530;
 }
 
 .todo-form button {
@@ -53,6 +92,11 @@ h1 {
   color: #fff;
   font-size: 1rem;
   cursor: pointer;
+}
+
+.dark .todo-form button {
+  background: #e8ddd0;
+  color: #2f2a24;
 }
 
 .todo-form button:hover {
@@ -79,6 +123,11 @@ h1 {
   animation: fadeIn 180ms ease-out;
 }
 
+.dark .todo-item {
+  background: #1e1a15;
+  border-color: #3d3530;
+}
+
 .todo-toggle {
   width: 18px;
   height: 18px;
@@ -101,6 +150,12 @@ h1 {
   color: #7b5b3a;
   padding: 6px 10px;
   cursor: pointer;
+}
+
+.dark .delete-btn {
+  background: #2e2820;
+  border-color: #4a4038;
+  color: #c8a882;
 }
 
 .delete-btn:hover {

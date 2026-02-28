@@ -1,6 +1,19 @@
 const form = document.querySelector("#todo-form");
 const input = document.querySelector("#todo-input");
 const list = document.querySelector("#todo-list");
+const themeToggle = document.querySelector("#theme-toggle");
+
+// Apply persisted theme on load
+if (localStorage.getItem("theme") === "dark") {
+  document.documentElement.classList.add("dark");
+  themeToggle.textContent = "☀️";
+}
+
+themeToggle.addEventListener("click", () => {
+  const isDark = document.documentElement.classList.toggle("dark");
+  themeToggle.textContent = isDark ? "☀️" : "🌙";
+  localStorage.setItem("theme", isDark ? "dark" : "light");
+});
 
 const buildTodoItem = (text) => {
   const item = document.createElement("li");
