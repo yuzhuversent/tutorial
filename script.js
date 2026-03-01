@@ -1,6 +1,27 @@
 const form = document.querySelector("#todo-form");
 const input = document.querySelector("#todo-input");
 const list = document.querySelector("#todo-list");
+const themeToggle = document.querySelector("#theme-toggle");
+const themeIcon = themeToggle.querySelector("span");
+
+const DARK_CLASS = "dark-theme";
+const STORAGE_KEY = "theme";
+
+const applyTheme = (isDark) => {
+  document.documentElement.classList.toggle(DARK_CLASS, isDark);
+  themeIcon.textContent = isDark ? "☀️" : "🌙";
+  themeToggle.setAttribute("aria-label", isDark ? "Switch to light theme" : "Switch to dark theme");
+};
+
+const savedTheme = localStorage.getItem(STORAGE_KEY);
+const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+applyTheme(savedTheme ? savedTheme === "dark" : prefersDark);
+
+themeToggle.addEventListener("click", () => {
+  const isDark = !document.documentElement.classList.contains(DARK_CLASS);
+  applyTheme(isDark);
+  localStorage.setItem(STORAGE_KEY, isDark ? "dark" : "light");
+});
 
 const buildTodoItem = (text) => {
   const item = document.createElement("li");
