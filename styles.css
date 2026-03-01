@@ -212,7 +212,7 @@ h1 {
 
 .theme-toggle {
   background: none;
-  border: 1.5px solid var(--clr-border);
+  border: 2px solid var(--clr-primary);
   border-radius: 50%;
   width: 38px;
   height: 38px;
@@ -227,7 +227,7 @@ h1 {
 }
 
 .theme-toggle:hover {
-  border-color: var(--clr-primary);
+  border-color: var(--clr-primary-hover);
   background: var(--clr-item-bg);
 }
 
