@@ -10,12 +10,35 @@
   --clr-danger: #ef4444;
   --clr-danger-hover: #dc2626;
   --clr-done-text: #9ca3af;
+  --clr-item-bg: #f8faff;
+  --clr-item-border: #e8ecff;
+  --clr-input-bg: #f8faff;
   --radius: 14px;
   --shadow: 0 20px 60px rgba(99, 102, 241, 0.14);
   color-scheme: light;
   font-family: "Inter", "Segoe UI", system-ui, sans-serif;
   background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
   color: var(--clr-text);
+}
+
+:root.dark-theme {
+  --clr-bg: #0f0f1a;
+  --clr-surface: #1e1b2e;
+  --clr-border: #3730a3;
+  --clr-primary: #818cf8;
+  --clr-primary-hover: #6366f1;
+  --clr-text: #e0e7ff;
+  --clr-muted: #9ca3af;
+  --clr-danger-bg: #2d1515;
+  --clr-danger: #f87171;
+  --clr-danger-hover: #ef4444;
+  --clr-done-text: #6b7280;
+  --clr-item-bg: #16142a;
+  --clr-item-border: #2d2b4e;
+  --clr-input-bg: #16142a;
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  color-scheme: dark;
+  background: linear-gradient(135deg, #0f0f1a 0%, #1a1730 100%);
 }
 
 * {
@@ -66,7 +89,7 @@ h1 {
   border-radius: var(--radius);
   font-family: inherit;
   font-size: 0.95rem;
-  background: #f8faff;
+  background: var(--clr-input-bg);
   color: var(--clr-text);
   transition: border-color 0.2s, box-shadow 0.2s;
   outline: none;
@@ -79,7 +102,7 @@ h1 {
 .todo-form input:focus {
   border-color: var(--clr-primary);
   box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.18);
-  background: #fff;
+  background: var(--clr-surface);
 }
 
 .todo-form button {
@@ -119,16 +142,16 @@ h1 {
   align-items: center;
   gap: 14px;
   padding: 14px 16px;
-  border: 1.5px solid #e8ecff;
+  border: 1.5px solid var(--clr-item-border);
   border-radius: var(--radius);
-  background: #f8faff;
+  background: var(--clr-item-bg);
   animation: slideIn 220ms cubic-bezier(0.22, 1, 0.36, 1) both;
   transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
 }
 
 .todo-item:hover {
   border-color: var(--clr-border);
-  background: #fff;
+  background: var(--clr-surface);
   box-shadow: 0 4px 16px rgba(99, 102, 241, 0.08);
 }
 
@@ -158,7 +181,7 @@ h1 {
 }
 
 .delete-btn {
-  border: 1.5px solid #fca5a5;
+  border: 1.5px solid var(--clr-danger);
   border-radius: 10px;
   background: var(--clr-danger-bg);
   color: var(--clr-danger);
@@ -179,6 +202,42 @@ h1 {
 
 .delete-btn:active {
   transform: scale(0.95);
+}
+
+.theme-toggle-wrap {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 12px;
+}
+
+.theme-toggle {
+  background: none;
+  border: 1.5px solid var(--clr-border);
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s, background 0.2s, transform 0.12s;
+  padding: 0;
+  line-height: 1;
+}
+
+.theme-toggle:hover {
+  border-color: var(--clr-primary);
+  background: var(--clr-item-bg);
+}
+
+.theme-toggle:active {
+  transform: scale(0.92);
+}
+
+.theme-toggle:focus-visible {
+  outline: 3px solid var(--clr-primary);
+  outline-offset: 2px;
 }
 
 @keyframes slideIn {
